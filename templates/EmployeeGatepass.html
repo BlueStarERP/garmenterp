@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--=============================================================-->
+
+<div class="row">
+<div class="col-md-6">
+<div class="card-box mb-30">
+    <div class="pb-20">
+
+
+        <div class="form-group row col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">Super Item</label>
+                    <div class="col-sm-12 col-md-12">
+                        <select
+                        class="custom-select2 form-control"
+                        name="superitem"
+                        style="width: 100%; height: 38px"
+                        data-style="btn-outline-primary"
+                    >
+                        <optgroup>
+                            <option value="">Select Employee Name</option>
+                            {% for m in emp %}
+                            <option value="{{m.id}}">
+                                {{m.employee_name}}|{{m.employee_id}}
+
+                            </option>
+                            {% endfor %}
+                        </optgroup>
+
+                    </select>
+                    </div>
+                </div>
+
+        <div></div>
+
+
+
+    </div>
+</div>
+</div>
+
+    <div class="col-md-12">
+<!--        list sect -->
+        <div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4 text-center"><u>Employee Gate Pass</u></h4>
+
+    </div>
+    <div class="pb-20">
+        <table class="data-table table stripe hover">
+            <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Code</th>
+
+                <th>Depture</th>
+                <th>Arrival</th>
+                <th>Reason</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in gp %}
+            <tr>
+                <td class="table-plus">{{i.employee_name}}</td>
+                <td>{{i.emp_code}}</td>
+
+                <td>{{i.departure}}</td>
+                <td>{{i.arrival_time}}</td>
+                <td>{{i.reason}}</td>
+                <td>{{i.status}}</td>
+
+            </tr>
+            {% endfor %}
+
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<!--        end list sect -->
+    </div>
+
+</div>
+
+
+{% endblock content %}

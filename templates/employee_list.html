@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!--=============================================================-->
+<div class="card-box mb-30">
+	{% if message %}
+	
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		<strong>{{message}}</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
+	  <br>
+	{% endif %}
+    <div class="pd-20">
+        <a href="{% url 'myapp:EmpCreate' %}" class="btn btn-sm btn-primary">+ Add New Employee</a>
+
+        
+
+    </div>
+    <div class="pb-20">
+        <table class="table hover multiple-select-row data-table-export nowrap">
+            <thead>
+            <tr class="table-primary">
+
+                <th class="text-center">Employee ID</th>
+                <th class="text-center">Employee Name</th>
+                <th class="text-center">SSB ID</th>
+                <th class="text-center">NRC No</th>
+                <th class="text-center">Entry Date</th>
+                <th class="text-center">Phone</th>
+                <th class="text-center">More Details</th>
+                
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for p in emp %}
+            <tr class="">
+                <td class="table-plus text-center"><b>{{p.employee_id}}</b></td>
+                <td>{{p.employee_name}}</td>
+                <td>{{p.ssb_id}}</td>
+                <td>{{p.nrc_no}}</td>
+                <td>{{p.entrydate}}</td>
+                <td>{{p.phone}}</td>
+                <td>
+                    <a href="{% url 'myapp:EmployeeDetailView' p.id %}" class="btn btn-sm btn-outline-info">View More</a>                    
+                </td>
+                
+                
+            </tr>
+            
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+
